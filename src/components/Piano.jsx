@@ -29,27 +29,22 @@ const keys = [
 
 const Piano = ({ playNote }) => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-700">
-      <div className="relative flex items-end gap-1 p-4 bg-gray-800 rounded-lg shadow-2xl">
-        {keys.map((key) => (
-          <div
-            key={key.note}
-            className={`relative flex justify-center items-end ${
-              key.isBlack
-                ? "bg-black text-white w-10 h-32 -ml-5 z-10"
-                : "bg-white text-black w-14 h-40"
-            } border border-gray-700 rounded-b-md shadow-lg cursor-pointer transition-transform active:scale-95`}
-            onClick={() => playNote(key.note)}
-          >
-            <span
-              className={`absolute bottom-2 text-xs font-bold ${
-                key.isBlack ? "text-white" : "text-gray-700"
+    <div className="container-fluid bg-dark text-light py-5 vh-100 d-flex align-items-center justify-content-center">
+      <div className="piano-container bg-secondary p-4 rounded shadow-lg">
+        <h2 className="text-center mb-4">🎹 Virtual Piano</h2>
+        <div className="piano d-flex position-relative">
+          {keys.map((key) => (
+            <div
+              key={key.note}
+              className={`piano-key d-flex align-items-end justify-content-center position-relative ${
+                key.isBlack ? "black-key" : "white-key"
               }`}
+              onClick={() => playNote(key.note)}
             >
-              {key.key}
-            </span>
-          </div>
-        ))}
+              <span className="key-label">{key.key}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
