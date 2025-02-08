@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Piano from "./components/Piano";
 import Controls from "./components/Controls";
 import * as Tone from "tone";
-import "../dist/output.css";
 
 function App() {
   const [volume, setVolume] = useState(0.5);
